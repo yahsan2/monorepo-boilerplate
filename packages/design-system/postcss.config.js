@@ -1,6 +1,3 @@
-// import { breakpoints, tokens } from "./src/tokens";
-const { tokens } = require("./src/tokens");
-
 // StoryBook と App 両方には反映される config
 module.exports = {
   plugins: {
