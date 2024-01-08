@@ -30,23 +30,29 @@ const config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         primary: {
-          DEFAULT: "var(--primary)",
+          DEFAULT: "var(--primary-default)",
+          hover: "var(--primary-hover)",
+          active: "var(--primary-active)",
           foreground: "var(--primary-foreground)",
         },
         secondary: {
-          DEFAULT: "var(--secondary)",
+          DEFAULT: "var(--secondary-default)",
+          hover: "var(--secondary-hover)",
+          active: "var(--secondary-active)",
           foreground: "var(--secondary-foreground)",
         },
         destructive: {
-          DEFAULT: "var(--destructive)",
+          DEFAULT: "var(--destructive-default)",
+          hover: "var(--destructive-hover)",
+          active: "var(--destructive-active)",
           foreground: "var(--destructive-foreground)",
         },
         muted: {
-          DEFAULT: "var(--muted)",
+          DEFAULT: "var(--muted-default)",
           foreground: "var(--muted-foreground)",
         },
         accent: {
-          DEFAULT: "var(--accent)",
+          DEFAULT: "var(--accent-default)",
           foreground: "var(--accent-foreground)",
         },
         popover: {

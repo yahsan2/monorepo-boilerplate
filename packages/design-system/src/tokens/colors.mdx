@@ -37,10 +37,10 @@ color: var(--text-contrast);
     }, {})}
   />
   <ColorItem
-    title="Alert"
+    title="Destructive"
     subtitle="破壊的なアクション・注意を要するものに使用、ネガティブ"
     colors={Object.entries(colors).reduce((acc, [key, value]) => {
-      if (key.startsWith("alert-")) acc[`var(--${key})`] = value;
+      if (key.startsWith("destructive-")) acc[`var(--${key})`] = value;
       return acc;
     }, {})}
   />

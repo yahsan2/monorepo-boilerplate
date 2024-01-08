@@ -44,7 +44,7 @@ export const colorPallets = {
 export const backgroundColors = {
   "background-default": colorPallets["natural-base"],
   "background-primary": colorPallets["blue-100"],
-  "background-alert": colorPallets["orange-100"],
+  "background-destructive": colorPallets["orange-100"],
   "background-disabled": colorPallets["monotone-100"],
   "background-white": colorPallets["white"],
   "background-modal": `rgba(${hexToRgb(colorPallets["black"])}, 0.4)`,
@@ -57,7 +57,7 @@ export const textColors = {
   "text-disabled": colorPallets["monotone-500"],
   "text-primary": colorPallets["blue-500"],
   "text-contrast": colorPallets["white"],
-  "text-alert": colorPallets["orange-500"],
+  "text-destructive": colorPallets["orange-500"],
   "text-error": colorPallets["red-600"],
 };
 
@@ -77,6 +77,7 @@ export const colors = {
   "primary-hover": colorPallets["blue-600"],
   "primary-active": colorPallets["blue-700"],
   "primary-disabled": `rgba(${hexToRgb(colorPallets["blue-500"])}, 0.5)`, // blue-500 の透明度 50%
+  "primary-foreground": colorPallets["white"],
 
   // Secondary
   "secondary-default": colorPallets["white"],
@@ -84,11 +85,11 @@ export const colors = {
   "secondary-active": colorPallets["monotone-200"],
   "secondary-disabled": `rgba(${hexToRgb(colorPallets["monotone-500"])}, 0.5)`, // monotone-500 の透明度 50%
 
-  // Alert
-  "alert-default": colorPallets["orange-500"],
-  "alert-hover": colorPallets["orange-600"],
-  "alert-active": colorPallets["orange-700"],
-  "alert-disabled": `rgba(${hexToRgb(colorPallets["orange-500"])}, 0.4)`, // blue-500 の透明度 50%
+  // destructive
+  "destructive-default": colorPallets["orange-500"],
+  "destructive-hover": colorPallets["orange-600"],
+  "destructive-active": colorPallets["orange-700"],
+  "destructive-disabled": `rgba(${hexToRgb(colorPallets["orange-500"])}, 0.4)`, // blue-500 の透明度 50%
 
   // Error
   "error-default": colorPallets["red-600"],

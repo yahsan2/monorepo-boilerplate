@@ -9,16 +9,5 @@ module.exports = {
     },
     autoprefixer: {},
     "postcss-nested": {},
-    "postcss-css-variables": {
-      variables: Object.entries(tokens).reduce((acc, [key, value]) => {
-        return {
-          ...acc,
-          [`--${key}`]: value, //例: --color-white: #ffffff;
-        };
-      }, {}),
-    },
-    // "postcss-simple-vars": {
-    //   variables: breakpoints,
-    // },
   },
 };

@@ -2,74 +2,81 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  :root {
-    --font-family-display: "Helvetica Neue",
-        Arial,
-        Meiryo,
-        sans-serif;
-      ;
-      --font-family-body: "游ゴシック体",
-        YuGothic,
-        "游ゴシック Medium",
-        "Yu Gothic Medium",
-        "游ゴシック",
-        "Yu Gothic",
-        sans-serif;
-    --tw-shadow-colored: hsl(inherit);
-    --tw-shadow-color: hsl(inherit);
+:root {
+  --font-family-display: "Helvetica Neue",
+    Arial,
+    Meiryo,
+    sans-serif;
+  ;
+  --font-family-body: "游ゴシック体",
+    YuGothic,
+    "游ゴシック Medium",
+    "Yu Gothic Medium",
+    "游ゴシック",
+    "Yu Gothic",
+    sans-serif;
+  /* primary */
+    --primary-default: #1e293b;
+    --primary-hover: #2e293b;
+    --primary-active: #0e293b;
+    --primary-foreground: #fff;
+    /* secondary */
+    --secondary-default: hsl(240 4.8% 95.9%);
+    --secondary-hover: hsl(240 4.8% 95.9%);
+    --secondary-active: hsl(240 4.8% 95.9%);
+    --secondary-foreground: var(--primary);
+    /* destructive */
+    --destructive-default: #ef4444;
+    --destructive-hover: #ef4444eb;
+    --destructive-active: #e84242;
+    --destructive-foreground: #fafafa;
+    /* mute */
+    --muted-default: hsl(240 4.8% 95.9%);
+    --muted-foreground: hsl(240 3.8% 46.1%);
+    /* accent */
+    --accent-default: hsl(240 4.8% 95.9%);
+    --accent-foreground: hsl(240 5.9% 10%);
 
+  /* base */
     --background: hsl(0 0% 100%);
     --foreground: #1e293b;
-
-    --card: hsl(0 0% 100%);
-    --card-foreground: hsl(240 10% 3.9%);
-
-    --popover: hsl(0 0% 100%);
-    --popover-foreground: hsl(240 10% 3.9%);
-
-    --primary: #1e293b;
-
-    --primary-foreground: #fff;
-
-    --secondary: hsl(240 4.8% 95.9%);
-    --secondary-foreground: var(--primary);
-
-    --muted: hsl(240 4.8% 95.9%);
-    --muted-foreground: hsl(240 3.8% 46.1%);
-
-    --accent: hsl(240 4.8% 95.9%);
-    --accent-foreground: hsl(240 5.9% 10%);
-    --destructive: hsl(0 84.2% 60.2%);
-    --destructive-foreground: hsl(0 0% 98%);
-
-    --border: hsl(240 5.9% 90%);
-    --input: hsl(240 5.9% 90%);
+  /* input */
+    --input: #e4e4e7;
     --ring: hsl(240 10% 3.9%);
 
+  /* border */
+    --border: hsl(240 5.9% 90%);
     --radius: 8px;
-  }
+    /* card */
+    --card: hsl(0 0% 100%);
+    --card-foreground: hsl(240 10% 3.9%);
+  /* popover */
+    --popover: hsl(0 0% 100%);
+    --popover-foreground: hsl(240 10% 3.9%);
+}
 
-  .dark {
-    --background: hsl(240 10% 3.9%);
-    --foreground: hsl(0 0% 98%);
 
-    --card: hsl(240 10% 3.9%);
+.dark {
+  --background: hsl(240 10% 3.9%);
+  --foreground: hsl(0 0% 98%);
+
+  --card: hsl(240 10% 3.9%);
     --card-foreground: hsl(0 0% 98%);
 
-    --popover: hsl(240 10% 3.9%);
+  --popover: hsl(240 10% 3.9%);
     --popover-foreground: hsl(0 0% 98%);
 
-    --primary: hsl(0 0% 98%);
+  --primary: hsl(0 0% 98%);
+  --primary: hsl(0 0% 98%);
     --primary-foreground: hsl(240 5.9% 10%);
 
-    --secondary: hsl(240 3.7% 15.9%);
+  --secondary: hsl(240 3.7% 15.9%);
     --secondary-foreground: hsl(0 0% 98%);
 
-    --muted: hsl(240 3.7% 15.9%);
+  --muted: hsl(240 3.7% 15.9%);
     --muted-foreground: hsl(240 5% 64.9%);
 
-    --accent: hsl(240 3.7% 15.9%);
+  --accent: hsl(240 3.7% 15.9%);
     --accent-foreground: hsl(0 0% 98%);
 
     --destructive: hsl(0 62.8% 30.6%);
@@ -78,7 +85,6 @@
     --border: hsl(240 3.7% 15.9%);
     --input: hsl(240 3.7% 15.9%);
     --ring: hsl(240 4.9% 83.9%);
-  }
 }
 
 @layer base {

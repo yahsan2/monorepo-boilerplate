@@ -8,10 +8,10 @@ const [buttonVariants, buttonConfig] = cv(
   {
     variants: {
       variant: {
-        default: "hover:bg-primary/90 bg-primary font-bold text-primary-foreground",
-        destructive: "hover:bg-destructive/90 bg-destructive text-destructive-foreground",
+        default: "hover:bg-primary-hover bg-primary font-bold text-primary-foreground",
+        destructive: "hover:bg-destructive-hover bg-destructive text-destructive-foreground",
         outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-        secondary: "hover:bg-secondary/80 bg-secondary text-secondary-foreground",
+        secondary: "hover:bg-secondary-hover bg-secondary text-secondary-foreground",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
       },
