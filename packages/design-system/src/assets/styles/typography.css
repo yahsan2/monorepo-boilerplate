@@ -1,0 +1,111 @@
+[class="^text--"] {
+  font-style: normal;
+  font-feature-settings:
+    "clig" off,
+    "liga" off;
+}
+
+/* Display */
+.text--display {
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-md);
+  &.xl {
+    font-size: var(--font-size-6xl);
+  }
+  &.lg {
+    font-size: var(--font-size-5xl);
+  }
+  &.md {
+    font-size: var(--font-size-3xl);
+  }
+  &.sm {
+    font-size: var(--font-size-lg);
+  }
+  &.xs {
+    text-decoration: line-through;
+    &::before {
+      color: red;
+      content: "利用できないサイズ: ";
+    }
+  }
+}
+
+/* Title */
+.text--title {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-md);
+  &.xl {
+    font-size: var(--font-size-5xl);
+    line-height: var(--line-height-md);
+  }
+  &.lg {
+    font-size: var(--font-size-2xl);
+    line-height: var(--line-height-md);
+  }
+  &.md {
+    font-size: var(--font-size-lg);
+    line-height: var(--line-height-md);
+  }
+  &.sm {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
+  }
+  &.xs {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-md);
+  }
+}
+
+/* Body */
+.text--body {
+  line-height: var(--line-height-md);
+  &:not(.bold) {
+    font-weight: var(--font-weight-normal);
+  }
+  &.bold {
+    font-weight: var(--font-weight-bold);
+  }
+  &.lg {
+    font-size: var(--font-size-lg);
+  }
+  &.md {
+    font-size: var(--font-size-md);
+  }
+  &.sm {
+    font-size: var(--font-size-sm);
+  }
+  &.xl,
+  &.xs {
+    text-decoration: line-through;
+    &::before {
+      color: red;
+      content: "利用できないサイズ: ";
+    }
+  }
+}
+
+/* Caption */
+.text--caption {
+  font-weight: var(--font-weight-normal);
+  &.lg {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
+  }
+  &:not(.lg):not(.sm),
+  &.md {
+    font-size: var(--font-size-md);
+    line-height: var(--line-height-md);
+  }
+  &.sm {
+    font-size: var(--font-size-sm);
+    line-height: var(--line-height-sm);
+  }
+  &.xl,
+  &.xs {
+    text-decoration: line-through;
+    &::before {
+      color: red;
+      content: "利用できないサイズ: ";
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2022",
+    "outDir": "dist",
+    "lib": ["ES2022", "DOM"],
+    "types": ["vitest/globals"],
+    // "isolatedModules": true,
+    "noEmit": false
+  }
+  // "include": ["**/*.spec.ts", "**/*.spec.tsx"]
+}

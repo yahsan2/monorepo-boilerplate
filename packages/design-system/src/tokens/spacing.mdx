@@ -1,0 +1,111 @@
+import { Meta } from "@storybook/blocks";
+import { uniqSpacing, namedSpacing } from "./spacing";
+
+{/* 本当は Box.vue とかにして外で使いまわしたい */}
+export const Box = ({tokens, cssKey, customCss})=> {
+return (
+
+<div style={{ display: "grid", gap: "16px", margin: "25px 0 40px" }}>
+  {Object.entries(tokens).map(([key, value]) => {
+    return (
+      <div
+        style={{
+          display: "flex",
+          gap: "16px",
+          alignItems: "center",
+        }}
+      >
+        <div
+          key={key}
+          style={{
+            height: 30,
+            display: "flex",
+            backgroundColor: "rgba(255,0,0,0.1)",
+            fontSize: "10px",
+            alignItems: "center",
+            justifyContent: "center",
+            [cssKey]: value,
+            ...customCss,
+          }}
+        >
+          {value}
+        </div>
+        <div style={{ fontSize: "14px" }}>var(--{key})</div>
+      </div>
+    );
+  })}
+</div>
+) }
+
+export function filterTokens(tokens, filter) {
+  const entries = Object.entries(tokens).filter(([k, v]) => k.startsWith(filter));
+  return Object.fromEntries(entries);
+}
+
+<Meta title="Tokens/Spacing" />
+
+# Spacing Tokens
+
+スペースに関するデザイントークン
+
+## Base Spacing
+
+gap, padding, margin などに利用する。定義されたのスペース以外は、利用しない。
+
+**ただし、基本は [\<Container\>](?path=/docs/frames-container--documentation) コンポーネントの利用を推奨する**
+
+このように定義された、CSS 変数を利用できる。
+
+```css
+padding: var(--spacing-8);
+```
+
+<Box
+  cssKey="width"
+  tokens={uniqSpacing}
+  customCss={{ borderStyle: "solid", borderColor: "#eee" }}
+/>
+
+## Named Spacing
+
+スペースの利用シーンの定義
+
+### Section Spacing
+
+[\<Container\>](?path=/docs/frames-container--documentation#section-container) コンポーネントの [#section-container](?path=/docs/frames-container--documentation#section-container) で利用している
+
+<Box
+  cssKey="width"
+  tokens={filterTokens(namedSpacing, "spacing-section")}
+  customCss={{ borderStyle: "solid", borderColor: "#eee" }}
+/>
+
+### Stack Spacing
+
+[\<Container\>](?path=/docs/frames-container--documentation#stack-container) コンポーネントの [#stack-container](?path=/docs/frames-container--documentation#stack-container) で利用している
+
+<Box
+  cssKey="width"
+  tokens={filterTokens(namedSpacing, "spacing-stack")}
+  customCss={{ borderStyle: "solid", borderColor: "#eee" }}
+/>
+
+### Cluster Spacing
+
+[\<Container\>](?path=/docs/frames-container--documentation#cluster-container) コンポーネントの [#cluster-container](?path=/docs/frames-container--documentation#cluster-container) で利用している
+
+<Box
+  cssKey="width"
+  tokens={filterTokens(namedSpacing, "spacing-cluster")}
+  customCss={{ borderStyle: "solid", borderColor: "#eee" }}
+/>
+
+### LayoutSide Spacing
+
+[\<LayoutSide\>](?path=/docs/frames-layoutside--documentation) コンポーネントで利用している
+
+<Box
+  cssKey="width"
+  tokens={filterTokens(namedSpacing, "spacing-layoutSide")}
+  customCss={{ borderStyle: "solid", borderColor: "#eee" }}
+/>

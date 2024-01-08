@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="../src/assets/styles/globals.css" />
+
+<style>
+  .story-container {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+
+  .story-container>.col {
+    display: flex;
+    gap: 12px;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  /* Primary Story と Stories 一覧の一番目 Story は内容がかぶるため */
+  #stories+.sb-anchor {
+    display: none;
+  }
+</style>

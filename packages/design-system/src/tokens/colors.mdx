@@ -1,0 +1,129 @@
+import { Meta, ColorPalette, ColorItem } from "@storybook/blocks";
+import { colorPallets, colors } from "./colors";
+
+<Meta title="Tokens/Color" />
+
+# Color Tokens
+
+色に関するデザイントークン
+
+## Color Names
+
+- カラーパレットを元に利用シーンで定義したカラー名（色の意味を示す）。
+- Figma のカラー名にできるだけ合わせる。
+
+このように定義された、CSS 変数を利用できる。
+
+```css
+background: var(--primary-default);
+color: var(--text-contrast);
+```
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="プロダクトカラー、セーフティなもの・優先度の高いものに使用、ポジティブ"
+    colors={Object.entries(colors).reduce((acc, [key, value]) => {
+      if (key.startsWith("primary-")) acc[`var(--${key})`] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="中立的なもの・オプション的なものに使用、ニュートラル"
+    colors={Object.entries(colors).reduce((acc, [key, value]) => {
+      if (key.startsWith("secondary-")) acc[`var(--${key})`] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Alert"
+    subtitle="破壊的なアクション・注意を要するものに使用、ネガティブ"
+    colors={Object.entries(colors).reduce((acc, [key, value]) => {
+      if (key.startsWith("alert-")) acc[`var(--${key})`] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Text"
+    subtitle="テキストカラーに使う色。"
+    colors={Object.entries(colors).reduce((acc, [key, value]) => {
+      if (key.startsWith("text-")) acc[`var(--${key})`] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Border"
+    subtitle="ボーダーに使う色。"
+    colors={Object.entries(colors).reduce((acc, [key, value]) => {
+      if (key.startsWith("border-")) acc[`var(--${key})`] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Background"
+    subtitle="背景に使う色。"
+    colors={Object.entries(colors).reduce((acc, [key, value]) => {
+      if (key.startsWith("background-")) acc[`var(--${key})`] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Other"
+    subtitle="その他カラー"
+    colors={Object.entries(colors).reduce((acc, [key, value]) => {
+      if (key.startsWith("success-") || key.startsWith("error-")) {
+        acc[`var(--${key})`] = value;
+      }
+      return acc;
+    }, {})}
+  />
+</ColorPalette>
+
+## Color Pallets
+
+- プロダクトで利用しているカラーパレット（色の数を示す）。
+- 基本的にはデザイナーの確認なしに、色の数を変更してはいけない。
+
+このように、定義された CSS 変数を利用できるが、先述した Color Name を利用するのが好ましい。
+
+```css
+color: var(--blue-500);
+```
+
+<ColorPalette>
+  <ColorItem
+    title="Grey"
+    subtitle="基本カラー"
+    colors={Object.entries(colorPallets).reduce((acc, [key, value]) => {
+      if (key.startsWith("grey-")) acc[key] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Blue"
+    subtitle="プライマリーカラー"
+    colors={Object.entries(colorPallets).reduce((acc, [key, value]) => {
+      if (key.startsWith("blue-")) acc[key] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Orange"
+    subtitle="アクセントカラー"
+    colors={Object.entries(colorPallets).reduce((acc, [key, value]) => {
+      if (key.startsWith("orange-")) acc[key] = value;
+      return acc;
+    }, {})}
+  />
+  <ColorItem
+    title="Other"
+    subtitle="その他カラー"
+    colors={Object.entries(colorPallets).reduce((acc, [key, value]) => {
+      if (!key.startsWith("grey-") && !key.startsWith("orange-") && !key.startsWith("blue-")) {
+        acc[key] = value;
+      }
+      return acc;
+    }, {})}
+  />
+</ColorPalette>

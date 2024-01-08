@@ -1,0 +1,84 @@
+import { Meta } from "@storybook/blocks";
+import { uniqSizes, sizes } from "./sizes";
+
+{/* 本当は Box.vue とかにして外で使いまわしたい */}
+export const Box = ({tokens, cssKey, customCss})=> {
+return (
+
+<div style={{ display: "grid", gap: "16px", margin: "25px 0 40px", overflow: "auto" }}>
+  {Object.entries(tokens).map(([key, value]) => {
+    return (
+      <div
+        style={{
+          display: "grid",
+          gap: "2px",
+        }}
+      >
+        <div
+          key={key}
+          style={{
+            height: 30,
+            display: "flex",
+            backgroundColor: "rgba(255,0,0,0.1)",
+            fontSize: "10px",
+            alignItems: "center",
+            justifyContent: "center",
+            [cssKey]: value,
+            ...customCss,
+          }}
+        >
+          {value}
+        </div>
+        <div style={{ fontSize: "14px" }}>var(--{key})</div>
+      </div>
+    );
+  })}
+</div>
+) }
+
+export function filterTokens(tokens, filter) {
+  const entries = Object.entries(tokens).filter(([k, v]) => k.startsWith(filter));
+  return Object.fromEntries(entries);
+}
+
+<Meta title="Tokens/Size" />
+
+# Size Tokens
+
+サイズに関するデザイントークン
+
+## Base Sizes
+
+64px 以上の固定のサイズ（width, height など） はできる限り定義して使う。
+
+このように定義された、CSS 変数を利用できる。
+
+```css
+padding: var(--size-560);
+```
+
+<Box cssKey="width" tokens={uniqSizes} customCss={{ borderStyle: "solid", borderColor: "#eee" }} />
+
+## Named Size
+
+サイズの利用シーンの定義
+
+### Container Size
+
+[\<Container\>](?path=/docs/frames-container--documentation) コンポーネントで利用している
+
+<Box
+  cssKey="width"
+  tokens={filterTokens(sizes, "size-container")}
+  customCss={{ borderStyle: "solid", borderColor: "#eee" }}
+/>
+
+### Modal Size
+
+[\<Modal\>](?path=/docs/frames-container--documentation) コンポーネントで利用している
+
+<Box
+  cssKey="width"
+  tokens={filterTokens(sizes, "size-modal")}
+  customCss={{ borderStyle: "solid", borderColor: "#eee" }}
+/>

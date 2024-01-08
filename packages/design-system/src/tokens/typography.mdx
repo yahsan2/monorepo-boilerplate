@@ -1,0 +1,72 @@
+import { Meta, Typeset } from "@storybook/blocks";
+import { fontSizes, fontWeights } from "./typography";
+
+<Meta title="Tokens/Typography" />
+
+# Typography Tokens
+
+Typography に関するデザイントークン
+
+## TextStyle
+
+Typography に限り、以下のような Global なユーティリティー CSS を利用する。（理由は、fontSizes, fontWeights, lineheight の組み合わせがあるため）
+
+- filepath: packages/storybook/assets/styles/typography.css
+- `.text--display` `.text--title` `.text--body` `.text--caption` の４つのタイプ
+- `.xs` `.sm` `.md` `.lg` `.xl` の５つのサイズがある。
+
+**ただし、基本は [\<Text\>](?path=/docs/atoms-text--documentation) コンポーネントの利用を推奨する**
+
+```html
+<p class="text--display">強調したい部分に用いる特殊なあしらい</p>
+<p class="text--title.lg">画面名, 見出し文, メニュー・ボタン・リストインデックス等</p>
+<p class="text--body.md">強調したい部分に用いる特殊なあしらい</p>
+<p class="text--caption.sm">説明文・プレイスホルダー・タイムスタンプ表示等</p>
+```
+
+## Typeset
+
+- プロダクトで使うことができる fontFamily, fontSizes, fontWeights。
+- 直接 css に記述せずに、以下の css カスタムプロパティを利用できる。
+
+**ただし通常、先述した Text Style を利用することが好ましく、 typography.css の中でのみ使用する**
+
+```css
+color: var(--font-size-md);
+color: var(--font-weight-normal);
+color: var(--line-height-md);
+```
+
+{Object.entries(fontWeights).map(([key, fontWeight]) => (
+
+<div key={key}>
+  <p>
+    <b>Font</b>: Helvetica Neue (en)
+    <br />
+    <b>Weights</b>: {fontWeight} ({key.replace("font-weight-", "")})
+  </p>
+  <Typeset
+    fontSizes={Object.values(fontSizes)}
+    fontWeight={fontWeight}
+    sampleText={`Lorem ipsum dolor sit amet, consectetur adipiscing elit.`}
+    fontFamily="Helvetica Neue"
+  />
+</div>
+))}
+
+{Object.entries(fontWeights).map(([key, fontWeight]) => (
+
+<div key={key}>
+  <p>
+    <b>Font</b>: Hiragino Sans (jp)
+    <br />
+    <b>Weights</b>: {fontWeight} ({key.replace("font-weight-", "")})
+  </p>
+  <Typeset
+    fontSizes={Object.values(fontSizes)}
+    fontWeight={fontWeight}
+    sampleText={`あのイーハトーヴォのすきとおった風、夏でも底に冷たさをもつ青いそら。`}
+    fontFamily="Hiragino Sans"
+  />
+</div>
+))}

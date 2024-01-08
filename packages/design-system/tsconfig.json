@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["../../packages/design-system/src/*"],
+      "@ui/*": ["../../packages/design-system/src/*"]
+    }
+  },
+  "include": ["./**/*.ts", "./**/*.tsx", ".storybook/*"]
+}

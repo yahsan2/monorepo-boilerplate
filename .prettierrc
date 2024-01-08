@@ -1,0 +1,13 @@
+{
+  "plugins": [
+    "prettier-plugin-tailwindcss"
+  ],
+  "importOrder": ["^@core/(.*)$", "^@server/(.*)$", "^@ui/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "tailwindConfig": "./packages/design-system/tailwind.config.ts",
+  "tailwindFunctions": ["cva", "clsx", "cv"],
+  "trailingComma": "es5",
+  "singleQuote": false,
+  "printWidth": 100
+}

@@ -1,0 +1,77 @@
+import { Meta } from "@storybook/blocks";
+import { radiuses, shadows, borderWidths } from "./border";
+
+{/* 本当は Box.vue とかにして外で使いまわしたい */}
+export const Box = ({tokens, cssKey, customCss})=> {
+return (
+
+<div style={{ display: "flex", gap: "16px", margin: "25px 0 40px" }}>
+  {Object.entries(tokens).map(([key, value]) => {
+    return (
+      <div
+        style={{
+          display: "grid",
+          gap: "8px",
+        }}
+      >
+        <div
+          key={key}
+          style={{
+            width: 200,
+            height: 100,
+            display: "flex",
+            fontSize: "10px",
+            alignItems: "center",
+            justifyContent: "center",
+            [cssKey]: value,
+            ...customCss,
+          }}
+        >
+          {value}
+        </div>
+        <div style={{ textAlign: "center" }}>var(--{key})</div>
+      </div>
+    );
+  })}
+</div>
+) }
+
+<Meta title="Tokens/Border" />
+
+# Border Tokens
+
+ボーダー（縁枠）に関するデザイントークン
+
+## Border Width
+
+このように定義された、CSS 変数を利用できる。
+
+```css
+border-width: var(--border-width-1);
+```
+
+<Box
+  cssKey="borderWidth"
+  tokens={borderWidths}
+  customCss={{ borderStyle: "solid", borderColor: "#eee" }}
+/>
+
+## Box Shadow
+
+このように定義された、CSS 変数を利用できる。
+
+```css
+box-shadow: var(--shadow-md);
+```
+
+<Box cssKey="boxShadow" tokens={shadows} customCss={{}} />
+
+## Border Radius
+
+このように定義された、CSS 変数を利用できる。
+
+```css
+border-radius: var(--border-radius-md);
+```
+
+<Box cssKey="borderRadius" tokens={radiuses} customCss={{ background: "#666", color: "#fff" }} />
